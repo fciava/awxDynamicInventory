@@ -9,7 +9,7 @@ hostnames:
   - tag:Name
 keyed_groups:
 - prefix: tag
-  key: tags:AWX
+  key: tags
 compose:
   ansible_host: private_ip_address
 # Can use IAM role in future to avoid IAM users and static passwords
