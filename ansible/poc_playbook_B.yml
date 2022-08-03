@@ -1,6 +1,6 @@
 ---
 - name: Hello world!
-  hosts: all
+  hosts: tag_AWXB_True
   tasks:
 
     - name: Put helloworld file
