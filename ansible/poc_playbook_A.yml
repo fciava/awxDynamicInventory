@@ -5,7 +5,7 @@
 
     - name: Put helloworld file
       ansible.builtin.file:
-        path: /home/ec2-user/hello_world_A.txt
+        path: "/home/ec2-user/hello_world_A.txt"
         state: touch
 
     - name: Add line to helloworld
