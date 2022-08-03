@@ -1,0 +1,13 @@
+---
+- name: Hello world!
+  hosts: localhost
+  tasks:
+
+    - name: Put helloworld file
+      ansible.builtin.file:
+        path: /home/ec2-user/hello_world_A.txt
+
+    - name: Add line to helloworld
+      lineinfile:
+        path: /home/ec2-user/hello_world_A.txt
+        line: 'AWX tower calls AWS, AWS please answer'
