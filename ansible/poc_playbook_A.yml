@@ -1,6 +1,6 @@
 ---
 - name: Hello world!
-  hosts: localhost
+  hosts: all
   tasks:
 
     - name: Put helloworld file
