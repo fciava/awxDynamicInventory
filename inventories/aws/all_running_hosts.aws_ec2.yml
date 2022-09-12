@@ -4,9 +4,9 @@ regions:
 filters:
 - instance-state-name: running
 - tag:AWX:
-    - "True"
+  - "True"
 - tag:AWX:
-    - "true"
+  - "true"
 strict_permissions: False
 hostnames:
   - tag:Name
