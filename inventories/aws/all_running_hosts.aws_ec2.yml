@@ -2,7 +2,7 @@ plugin: aws_ec2
 regions:
   - eu-central-1
 filters:
-  instance-state-name: running
+  instance-state-name: Running
   # tag:AWX: "True"
 strict_permissions: False
 hostnames:
