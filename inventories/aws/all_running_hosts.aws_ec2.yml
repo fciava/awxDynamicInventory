@@ -3,7 +3,7 @@ regions:
   - eu-south-1
 filters:
   instance-state-name: running
-#   tag:AWX: "True"
+  tag:AWX: 'True'
 strict_permissions: False
 hostnames:
   - tag:Name
