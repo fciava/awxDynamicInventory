@@ -5,8 +5,6 @@ filters:
 - instance-state-name: running
 - tag:AWX:
   - "True"
-- tag:AWX:
-  - "true"
 strict_permissions: False
 hostnames:
   - tag:Name
