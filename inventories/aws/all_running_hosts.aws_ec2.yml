@@ -1,6 +1,7 @@
 plugin: aws_ec2
 regions:
   - eu-south-1
+  - eu-central-1
 filters:
   instance-state-name: running
   tag:AWX: 'True'
@@ -14,4 +15,4 @@ compose:
   ansible_host: public_ip_address
 # Can use IAM role in future to avoid IAM users and static passwords
 #iam_role_arn: "asdfas"
-iam_role_arn: arn:aws:iam::535393654389:role/awx-role
+# iam_role_arn: arn:aws:iam::535393654389:role/awx-role
