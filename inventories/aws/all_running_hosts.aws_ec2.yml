@@ -9,6 +9,7 @@ keyed_groups:
   key: tags
 compose:
   ansible_host: public_ip_address
+use_extra_vars: yes
 # Can use IAM role in future to avoid IAM users and static passwords
 #iam_role_arn: "asdfas"
 # iam_role_arn: arn:aws:iam::535393654389:role/awx-role
