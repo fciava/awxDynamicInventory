@@ -1,9 +1,10 @@
 plugin: aws_ec2
 regions:
-    - "{{ region[0] }}"
-#   - eu-central-1
-filters:
-  tag:AWX: 'True'
+  - eu-south-1
+  - eu-central-1
+# filters:
+#   "{{ filters }}"
+#   tag:AWX: 'True'
 strict_permissions: False
 hostnames:
   - tag:Name
