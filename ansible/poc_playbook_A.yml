@@ -11,6 +11,11 @@
         url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
         dest: /home/ec2-user/awscliv2.zip
 
+    - name: Install unzip
+      ansible.builtin.package:
+        name: unzip
+        state: present
+
     - name: unzip aws cli
       ansible.builtin.unarchive:
         src: /home/ec2-user/awscliv2.zip

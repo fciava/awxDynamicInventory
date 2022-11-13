@@ -11,10 +11,10 @@ install_preliminary_packages (){
   echo
   yum -q install -y sysstat.x86_64
   echo "Installing aws cli"
-  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-  unzip -q awscliv2.zip
-  ./aws/install
-  rm awscliv2.zip
+  # curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  # unzip -q awscliv2.zip
+  # ./aws/install
+  # rm awscliv2.zip
   echo "Ending function"
   echo
 }
