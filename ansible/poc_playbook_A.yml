@@ -15,6 +15,7 @@
       ansible.builtin.unarchive:
         src: /home/ec2-user/awscliv2.zip
         dest: /home/ec2-user/
+        remote_src: yes
     
     - name: install install aws cli
       ansible.builtin.shell: /home/ec2-user/./aws/install
