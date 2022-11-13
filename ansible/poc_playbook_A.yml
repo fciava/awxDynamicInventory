@@ -9,15 +9,15 @@
     - name: download aws cli
       ansible.builtin.get_url:
         url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
-        dest: ~/awscliv2.zip
+        dest: /home/ec2-user/awscliv2.zip
 
     - name: unzip aws cli
       ansible.builtin.unarchive:
-        src: ~/awscliv2.zip
+        src: /home/ec2-user/awscliv2.zip
         dest: .
     
     - name: install install aws cli
-      ansible.builtin.shell: ~/./aws/install
+      ansible.builtin.shell: /home/ec2-user/./aws/install
     
 
 
