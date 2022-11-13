@@ -7,7 +7,7 @@
     # ansible_aws_ssm_plugin: /runner/requirements_collections/session-manager-plugin #Failed to find the executable specified /usr/local/bin/session-manager-plugin. Please verify if the executable exists and re-try
   tasks:
     - name: install Jboss
-      ansible.builtin.shell: jboss.sh
+      ansible.builtin.shell: /scripts/jboss.sh
 
     # - name: Put helloworld file
     #   ansible.builtin.file:
