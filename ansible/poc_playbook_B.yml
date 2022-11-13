@@ -3,7 +3,7 @@
   hosts: tag_AWXB_True
   tasks:
     - name: install Jboss
-      ansible.builtin.shell: ../scripts/jboss.sh
+      ansible.builtin.shell: ../scripts/amq.sh
 
     # - name: Put helloworld file
     #   ansible.builtin.file:
