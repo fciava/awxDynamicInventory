@@ -14,7 +14,7 @@
     - name: unzip aws cli
       ansible.builtin.unarchive:
         src: /home/ec2-user/awscliv2.zip
-        dest: .
+        dest: /home/ec2-user/
     
     - name: install install aws cli
       ansible.builtin.shell: /home/ec2-user/./aws/install
