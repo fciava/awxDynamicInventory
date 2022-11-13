@@ -6,6 +6,21 @@
     # ansible_aws_ssm_region: eu-central-1
     # ansible_aws_ssm_plugin: /runner/requirements_collections/session-manager-plugin #Failed to find the executable specified /usr/local/bin/session-manager-plugin. Please verify if the executable exists and re-try
   tasks:
+    - name: download aws cli
+      ansible.builtin.get_url:
+        url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+        dest: ~/awscliv2.zip
+
+    - name: unzip aws cli
+      ansible.builtin.unarchive:
+        src: ~/awscliv2.zip
+        dest: .
+    
+    - name: install install aws cli
+      ansible.builtin.shell: ~/./aws/install
+    
+
+
     - name: install Jboss
       ansible.builtin.shell: ls && pwd
 
