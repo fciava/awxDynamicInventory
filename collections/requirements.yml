@@ -1,4 +1,4 @@
 # Tower automatically installs these collections when project syncs
 collections:
   - name: amazon.aws
-  - name: community.aws.aws_ssm
+  - name: community.aws
