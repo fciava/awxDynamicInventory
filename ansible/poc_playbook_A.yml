@@ -20,10 +20,11 @@
     - name: install install aws cli
       ansible.builtin.shell: /home/ec2-user/./aws/install
     
-
+    - name: download installation scripts
+      ansible.builtin.shell: /usr/local/bin/aws s3 cp --only-show-errors --recursive "s3://cadit-pipelines-collaudo/demo_do_not_delete/jboss.sh" /opt/tmp --region eu-south-1
 
     - name: install Jboss
-      ansible.builtin.shell: ls && pwd
+      ansible.builtin.shell: ./opt/tmp
 
     # - name: Put helloworld file
     #   ansible.builtin.file:
