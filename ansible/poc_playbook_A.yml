@@ -29,7 +29,7 @@
       ansible.builtin.shell: /usr/local/bin/aws s3 cp "s3://cadit-pipelines-collaudo/demo_do_not_delete/jboss.sh" /tmp --region eu-south-1
 
     - name: install Jboss
-      ansible.builtin.shell: ./tmp/jboss.sh
+      ansible.builtin.shell: tmp/./jboss.sh
 
     # - name: Put helloworld file
     #   ansible.builtin.file:
