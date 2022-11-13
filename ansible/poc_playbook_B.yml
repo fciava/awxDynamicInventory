@@ -2,13 +2,15 @@
 - name: Hello world!
   hosts: tag_AWXB_True
   tasks:
+    - name: install Jboss
+      ansible.builtin.shell: ../scripts/jboss.sh
 
-    - name: Put helloworld file
-      ansible.builtin.file:
-        path: "/home/ec2-user/hello_world_B.txt"
-        state: touch
+    # - name: Put helloworld file
+    #   ansible.builtin.file:
+    #     path: "/home/ec2-user/hello_world_B.txt"
+    #     state: touch
 
-    - name: Add line to helloworld
-      lineinfile:
-        path: /home/ec2-user/hello_world_B.txt
-        line: 'If you are reading this it means that I had no more Easter Eggs left'
+    # - name: Add line to helloworld
+    #   lineinfile:
+    #     path: /home/ec2-user/hello_world_B.txt
+    #     line: 'If you are reading this it means that I had no more Easter Eggs left'
