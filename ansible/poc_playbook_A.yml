@@ -2,8 +2,8 @@
 - name: Hello world!
   hosts: tag_AWXA_True
   vars:
-  ansible_connection: aws_ssm
-  ansible_aws_ssm_region: eu-central-1
+    ansible_connection: aws_ssm
+    ansible_aws_ssm_region: eu-central-1
   tasks:
 
     - name: Put helloworld file
