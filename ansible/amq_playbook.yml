@@ -47,7 +47,7 @@
 
     - name: "Print the logs content to a console"
       debug:
-      msg: "{{ installation_logs.stdout }}"  
+        msg: "{{ installation_logs.stdout }}"  
 
     # - name: Put helloworld file
     #   ansible.builtin.file:
