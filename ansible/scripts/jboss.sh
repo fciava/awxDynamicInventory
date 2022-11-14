@@ -55,7 +55,7 @@ jboss_install () {
   cd /opt/jboss
   echo "Extraction from .zip archive"
   echo
-  unzip -q /opt/tmp/jboss-eap-7.2.0.zip -d /opt/jboss
+  unzip -uq /opt/tmp/jboss-eap-7.2.0.zip -d /opt/jboss
   rm -Rf /opt/tmp/jboss-eap-7.2.0.zip # clear space
   echo "Ending function"
   echo
@@ -156,11 +156,11 @@ esac'
 cadit_software_install () {
   echo "Inserting cadgroup group"
   echo
-  groupadd -g 502 cadgroup
+  groupadd -f -g 502 cadgroup
   echo "Adding user iccreaaf"
   echo
   mkdir -p /opt/iccreaaf/home
-  useradd -g cadgroup -d /opt/iccreaaf/home iccreaaf
+  id -u iccreaaf &>/dev/null || useradd -g cadgroup -d /opt/iccreaaf/home iccreaaf
   chown iccreaaf:cadgroup /opt/iccreaaf/home
   echo "Adding password"
   echo
@@ -196,7 +196,7 @@ HERE
 
   echo "Copying jboss standalone folder in iccreaaf"
   echo
-  cp -dR /opt/jboss/jboss-eap-7.2/standalone/* \
+  cp -dRf /opt/jboss/jboss-eap-7.2/standalone/* \
         /opt/iccreaaf/frontend/jboss/af/standalone/
   echo "Change permissions"
   echo
@@ -206,7 +206,7 @@ HERE
   mkdir -p /opt/iccreaaf/etc/init.d
   echo "Copying folder jboss-iccreaaf"
   echo
-  cp -r /opt/tmp/1_impianto/jboss/opt/iccreaaf/etc/init.d/jboss-iccreaaf \
+  cp -rf /opt/tmp/1_impianto/jboss/opt/iccreaaf/etc/init.d/jboss-iccreaaf \
         /opt/iccreaaf/etc/init.d
   rm -Rf /opt/tmp/1_impianto/jboss/opt/iccreaaf/etc/init.d/jboss-iccreaaf # clear space     
   echo "Change permissions jboss-iccreaaf"
