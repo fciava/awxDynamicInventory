@@ -1,0 +1,55 @@
+---
+- name: Hello world!
+  hosts: tag_AWXmachineType_AMQ
+  # vars:
+    # ansible_connection: community.aws.aws_ssm
+    # ansible_aws_ssm_region: eu-central-1
+    # ansible_aws_ssm_plugin: /runner/requirements_collections/session-manager-plugin #Failed to find the executable specified /usr/local/bin/session-manager-plugin. Please verify if the executable exists and re-try
+  tasks:
+    - name: download aws cli
+      ansible.builtin.get_url:
+        url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+        dest: /home/ec2-user/awscliv2.zip
+
+    - name: Install unzip
+      ansible.builtin.package:
+        name: unzip
+        state: present
+
+    - name: unzip aws cli
+      ansible.builtin.unarchive:
+        src: /home/ec2-user/awscliv2.zip
+        dest: /home/ec2-user/
+        remote_src: yes
+    
+    - name: install aws cli
+      ansible.builtin.shell: /home/ec2-user/./aws/install --update
+
+    - name: download ssm agent
+      ansible.builtin.get_url:
+        url: https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+        dest: /home/ec2-user/mazon-ssm-agent.rpm
+
+    - name: Install ssm agent
+      ansible.builtin.yum:
+        name: /home/ec2-user/amazon-ssm-agent.rpm
+        state: present
+
+    - name: download installation scripts
+      ansible.builtin.shell: /usr/local/bin/aws s3 cp "s3://cadit-pipelines-collaudo/demo_do_not_delete/amq.sh" /tmp --region eu-south-1
+
+    - name: install AMQ
+      ansible.builtin.shell: sudo bash /tmp/amq.sh > /tmp/installation_logs
+
+    - name: show logs
+      ansible.builtin.shell: cat /tmp/installation_logs    
+
+    # - name: Put helloworld file
+    #   ansible.builtin.file:
+    #     path: "/home/ec2-user/hello_world_B.txt"
+    #     state: touch
+
+    # - name: Add line to helloworld
+    #   lineinfile:
+    #     path: /home/ec2-user/hello_world_B.txt
+    #     line: 'If you are reading this it means that I had no more Easter Eggs left'
