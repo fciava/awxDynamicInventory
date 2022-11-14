@@ -32,14 +32,14 @@
 
     - name: Install ssm agent
       ansible.builtin.yum:
-        name: /home/ec2-user/mazon-ssm-agent.rpm
+        name: /home/ec2-user/amazon-ssm-agent.rpm
         state: present
 
     - name: download installation scripts
       ansible.builtin.shell: /usr/local/bin/aws s3 cp "s3://cadit-pipelines-collaudo/demo_do_not_delete/jboss.sh" /tmp --region eu-south-1
 
     - name: install Jboss
-      ansible.builtin.shell: sudo bash /tmp/jboss.sh >> /tmp/installation_logs
+      ansible.builtin.shell: sudo bash /tmp/jboss.sh > /tmp/installation_logs
 
     # - name: Put helloworld file
     #   ansible.builtin.file:

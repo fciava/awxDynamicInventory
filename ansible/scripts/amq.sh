@@ -34,11 +34,11 @@ download_packages () {
 cadit_software_install_amq () {
   echo "Inserting cadgroup group"
   echo
-  groupadd -g 502 cadgroup
+  groupadd -f -g 502 cadgroup
   echo "Adding user iccreaaf"
   echo
   mkdir -p /opt/iccreaaf/home
-  useradd -g cadgroup -d /opt/iccreaaf/home iccreaaf
+  id -u iccreaaf &>/dev/null || useradd -g cadgroup -d /opt/iccreaaf/home iccreaaf
   chown iccreaaf:cadgroup /opt/iccreaaf/home
   echo "Adding password"
   echo
@@ -61,7 +61,7 @@ umask 0002'
   su - iccreaaf <<HERE
 echo "Writing profile in .bash_profile"
 echo
-echo "$cadit_profile" | tee -a ~/.bash_profile >/dev/null;
+echo "$cadit_profile" | tee ~/.bash_profile >/dev/null;
 HERE
 }
 

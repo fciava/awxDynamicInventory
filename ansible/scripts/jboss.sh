@@ -183,7 +183,7 @@ umask 0002'
   su - iccreaaf <<HERE
 echo "Writing profile in .bash_profile"
 echo
-echo "$cadit_profile" | tee -a ~/.bash_profile >/dev/null;
+echo "$cadit_profile" | tee ~/.bash_profile >/dev/null;
 HERE
   echo "Creating directories"
   echo
