@@ -1,5 +1,5 @@
 ---
-- name: Hello world!
+- name: AMQ installation
   hosts: tag_AWXmachineType_AMQ
   # vars:
     # ansible_connection: community.aws.aws_ssm

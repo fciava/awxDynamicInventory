@@ -1,5 +1,5 @@
 ---
-- name: Hello world!
+- name: JBOSS installation
   hosts: tag_AWXmachineType_JBOSS
   vars:
     # ansible_connection: community.aws.aws_ssm
