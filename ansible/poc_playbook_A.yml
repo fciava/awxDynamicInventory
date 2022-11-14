@@ -22,14 +22,24 @@
         dest: /home/ec2-user/
         remote_src: yes
     
-    - name: install install aws cli
+    - name: install aws cli
       ansible.builtin.shell: /home/ec2-user/./aws/install --update
-    
+
+    - name: download ssm agent
+      ansible.builtin.get_url:
+        url: https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+        dest: /home/ec2-user/mazon-ssm-agent.rpm
+
+    - name: Install ssm agent
+      ansible.builtin.yum:
+        name: /home/ec2-user/mazon-ssm-agent.rpm
+        state: present
+
     - name: download installation scripts
       ansible.builtin.shell: /usr/local/bin/aws s3 cp "s3://cadit-pipelines-collaudo/demo_do_not_delete/jboss.sh" /tmp --region eu-south-1
 
     - name: install Jboss
-      ansible.builtin.shell: sudo bash /tmp/jboss.sh
+      ansible.builtin.shell: sudo bash /tmp/jboss.sh >> /tmp/installation_logs
 
     # - name: Put helloworld file
     #   ansible.builtin.file:
