@@ -42,7 +42,12 @@
       ansible.builtin.shell: sudo bash /tmp/amq.sh > /tmp/installation_logs
 
     - name: show logs
-      ansible.builtin.shell: cat /tmp/installation_logs    
+      ansible.builtin.shell: cat /tmp/installation_logs
+      register: installation_logs   
+
+    - name: "Print the logs content to a console"
+      debug:
+      msg: "{{ installation_logs.stdout }}"  
 
     # - name: Put helloworld file
     #   ansible.builtin.file:
