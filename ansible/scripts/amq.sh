@@ -185,7 +185,7 @@ WantedBy=multi-user.target'
   echo
   echo "$amq_service" > amq-iccreaaf.service
   #chmod 744 amq-iccreaaf.service
-  cp amq-iccreaaf.service $amq_service_path
+  cp -f amq-iccreaaf.service $amq_service_path
   rm -r amq-iccreaaf.service
 
   echo "Reloading, enabling, starting AMQ services"
@@ -237,7 +237,7 @@ esac'
   echo "Writing AMQ initd file"
   echo
   echo "$amq_initd_service" > amq-iccreaaf
-  cp amq-iccreaaf $amq_initd_path
+  cp -f amq-iccreaaf $amq_initd_path
   rm -r amq-iccreaaf
 
 
