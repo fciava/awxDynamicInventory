@@ -28,7 +28,7 @@
     - name: download ssm agent
       ansible.builtin.get_url:
         url: https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
-        dest: /home/ec2-user/mazon-ssm-agent.rpm
+        dest: /home/ec2-user/amazon-ssm-agent.rpm
 
     - name: Install ssm agent
       ansible.builtin.yum:
