@@ -1,7 +1,5 @@
 #!/bin/bash
 
-sudo -s
-
 install_preliminary_packages (){
   echo "Installing first set packages"
   echo
