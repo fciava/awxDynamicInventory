@@ -65,22 +65,19 @@ jboss_service_create () {
   echo "Writing JBoss service"
   echo '#!/bin/bash
 
-        while $(sleep 30);
+        while $(sleep 120);
         do
-            echo "hello world"
+          echo ""
         done' > /opt/iccreaaf/frontend/jboss/af/run/jboss-eap.sh
   chmod a+x /opt/iccreaaf/frontend/jboss/af/run/jboss-eap.sh
   echo
   jboss_service=$\
 '[Unit]
 Description=Jboss BPS EA
-After=network.target
+After=systend-user-sessions.service
 
 [Service]
-Type=forking
-TimeoutStartSec = 300
-TimeoutStopSec  = 300
-PIDFile   = /opt/iccreaaf/frontend/jboss/af/run/jboss-eap.pid
+Type=simple
 ExecStart = /opt/iccreaaf/frontend/jboss/af/run/jboss-eap.sh
 Restart=on-abort
 
@@ -98,7 +95,7 @@ WantedBy=multi-user.target'
   #echo "$jboss_service" >> $jboss_service_path
   echo "$jboss_service" >> jboss-iccreaaf.service
   chmod 744 jboss-iccreaaf.service
-  cp jboss-iccreaaf.service $jboss_service_path
+  cp -f jboss-iccreaaf.service $jboss_service_path
   rm -r jboss-iccreaaf.service
   echo "Reloading daemons"
   echo

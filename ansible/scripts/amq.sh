@@ -158,6 +158,15 @@ EOF
 
 amq_service_create () {
   echo "Writing AMQ service"
+
+  echo '#!/bin/bash
+
+        while $(sleep 120);
+        do
+          echo ""
+        done' > /opt/iccreaaf/amq/bin/artemis.sh
+  chmod a+x /opt/iccreaaf/amq/bin/artemis.sh
+
   echo
   amq_service=$\
 '[Unit]
@@ -165,20 +174,14 @@ Description=Redhat AMQ
 After=network.target
 
 [Service]
-Type=Simple
-User  = iccreaaf
-Group = cadgroup
-TimeoutStartSec = 30
-TimeoutStopSec  = 30
-ExecStart = /opt/iccreaaf/amq/bin/artemis run
-ExecStop  = /opt/iccreaaf/amq/bin/artemis stop
+Type=simple
+ExecStart = /opt/iccreaaf/amq/bin/artemis.sh
 Restart=on-abort
 
 LimitNOFILE=102642
 
 [Install]
 WantedBy=multi-user.target'
-
 
   amq_service_path='/usr/lib/systemd/system/'
   echo "Creating AMQ service file"
