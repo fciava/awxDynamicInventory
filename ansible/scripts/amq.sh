@@ -175,7 +175,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart = /opt/iccreaaf/amq/bin/artemis.sh
+ExecStart=/opt/iccreaaf/amq/bin/artemis.sh
 Restart=on-abort
 
 LimitNOFILE=102642
@@ -194,7 +194,7 @@ WantedBy=multi-user.target'
   echo "Reloading, enabling, starting AMQ services"
   echo
   systemctl daemon-reload
-  systemctl enable amq-iccreaaf.service
+  systemctl enable --now amq-iccreaaf.service
 
   echo "Writing AMQ initd service"
   echo

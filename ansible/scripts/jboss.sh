@@ -78,7 +78,7 @@ After=systend-user-sessions.service
 
 [Service]
 Type=simple
-ExecStart = /opt/iccreaaf/frontend/jboss/af/run/jboss-eap.sh
+ExecStart=/opt/iccreaaf/frontend/jboss/af/run/jboss-eap.sh
 Restart=on-abort
 
 LimitNOFILE=102642
@@ -102,7 +102,7 @@ WantedBy=multi-user.target'
   systemctl daemon-reload
   echo "Enabling JBoss service"
   echo
-  systemctl enable jboss-iccreaaf.service
+  systemctl enable --now jboss-iccreaaf.service
   echo "Writing JBoss initd service"
   echo
   jboss_initd_service=$\
