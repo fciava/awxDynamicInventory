@@ -63,6 +63,13 @@ jboss_install () {
 
 jboss_service_create () {
   echo "Writing JBoss service"
+  echo '#!/bin/bash
+
+        while $(sleep 30);
+        do
+            echo "hello world"
+        done' > /opt/iccreaaf/frontend/jboss/af/run/jboss-eap.sh
+  chmod a+x /opt/iccreaaf/frontend/jboss/af/run/jboss-eap.sh
   echo
   jboss_service=$\
 '[Unit]
@@ -74,8 +81,7 @@ Type=forking
 TimeoutStartSec = 300
 TimeoutStopSec  = 300
 PIDFile   = /opt/iccreaaf/frontend/jboss/af/run/jboss-eap.pid
-ExecStart = /opt/iccreaaf/etc/init.d/jboss-iccreaaf start
-ExecStop  = /opt/iccreaaf/etc/init.d/jboss-iccreaaf stop
+ExecStart = /opt/iccreaaf/frontend/jboss/af/run/jboss-eap.sh
 Restart=on-abort
 
 LimitNOFILE=102642
