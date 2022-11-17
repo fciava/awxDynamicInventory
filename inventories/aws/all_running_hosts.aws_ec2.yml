@@ -6,7 +6,7 @@ filters:
 strict_permissions: False
 hostnames:
   # - '{{ tags["Name"] }}'
-  - '{{ instance_id }}'
+  # - '{{ instance_id }}'
   - tag:Name
   # - '{{ private-ip-address }}_{{ instance-id }}'
 keyed_groups:
