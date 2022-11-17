@@ -6,8 +6,8 @@ filters:
 strict_permissions: False
 hostnames:
   - tag:Name
-  - private_ip_address
-  - instance_id
+  - private-ip-address
+  - instance-id
 keyed_groups:
 - key: tags["Workload"]
   prefix: Workload
