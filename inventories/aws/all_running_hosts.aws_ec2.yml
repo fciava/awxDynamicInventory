@@ -7,8 +7,15 @@ strict_permissions: False
 hostnames:
   - tag:Name
 keyed_groups:
-- key: tags["AWXmachineType"]
-  prefix: Machine_Type
+- key: tags["Workload"]
+  prefix: Workload
+- key: tags["WorkloadType"]
+  prefix: WorkloadType
+  parent_group: Workload
+- key: tags["WorkloadSubset"]
+  prefix: WorkloadSubset
+  parent_group: WorkloadType
+
 compose:
   ansible_host: private_ip_address
 use_extra_vars: yes
