@@ -29,3 +29,4 @@ Thumbs.db
 
 # Remove tower config
 *.cfg
+terraform.tfstate
