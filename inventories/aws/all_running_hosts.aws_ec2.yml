@@ -11,7 +11,7 @@ keyed_groups:
   prefix: Workload
 - key: tags["WorkloadType"]
   prefix: WorkloadType
-  parent_group: tags["WorkloadType"]
+  parent_group: '_{{ tags["Workload"] }}'
 - key: tags["WorkloadSubset"]
   prefix: WorkloadSubset
 
