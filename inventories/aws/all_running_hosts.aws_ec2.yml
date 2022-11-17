@@ -5,7 +5,8 @@ filters:
   tag:AWX: 'True'
 strict_permissions: False
 hostnames:
-  - '{{ tags["Name"] }}'
+  # - '{{ tags["Name"] }}'
+  - _{{ instance-id }}'
   # - '{{ private-ip-address }}_{{ instance-id }}'
 keyed_groups:
 - key: tags["Workload"]
