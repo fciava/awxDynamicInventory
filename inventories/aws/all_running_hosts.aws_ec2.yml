@@ -8,7 +8,7 @@ hostnames:
   - tag:Name
 keyed_groups:
 - key: tags["AWXmachineType"]
-  prefix: tag["Value"]
+  prefix: Machine_Type
 compose:
   ansible_host: private_ip_address
 use_extra_vars: yes
