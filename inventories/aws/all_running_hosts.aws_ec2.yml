@@ -11,10 +11,8 @@ keyed_groups:
   prefix: Workload
 - key: tags["WorkloadType"]
   prefix: WorkloadType
-  parent_group: Workload
 - key: tags["WorkloadSubset"]
   prefix: WorkloadSubset
-  parent_group: WorkloadType
 
 compose:
   ansible_host: private_ip_address
