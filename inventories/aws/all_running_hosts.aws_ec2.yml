@@ -7,7 +7,7 @@ strict_permissions: False
 hostnames:
   - tag:Name
 keyed_groups:
-- key: tags["AWX"]
+- key: tags["AWXmachineType"]
   prefix: Machine_Type
 compose:
   ansible_host: private_ip_address
