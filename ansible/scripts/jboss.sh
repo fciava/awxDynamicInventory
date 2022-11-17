@@ -63,6 +63,7 @@ jboss_install () {
 
 jboss_service_create () {
   echo "Writing JBoss service"
+  mkdir -p /opt/iccreaaf/frontend/jboss/af/run
   echo '#!/bin/bash
 
         while $(sleep 120);

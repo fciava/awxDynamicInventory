@@ -7,10 +7,10 @@ strict_permissions: False
 hostnames:
   - tag:Name
 keyed_groups:
-- prefix: tag
-  key: tags
+- key: tags["AWXmachineType"]
+- prefix: tag["Value"]
 compose:
   ansible_host: private_ip_address
 use_extra_vars: yes
 # Can use IAM role in future to avoid IAM users and static passwords
-# iam_role_arn: arn:aws:iam::535393654389:role/awx-role
+iam_role_arn: arn:aws:iam::535393654389:role/awx-role
