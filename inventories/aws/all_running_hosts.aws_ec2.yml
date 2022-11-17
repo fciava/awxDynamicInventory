@@ -5,9 +5,7 @@ filters:
   tag:AWX: 'True'
 strict_permissions: False
 hostnames:
-  - tag:Name
-  - private-ip-address
-  - instance-id
+  - tag:Name_{{ private-ip-address }}_{{ instance-id }}
 keyed_groups:
 - key: tags["Workload"]
   prefix: Workload
