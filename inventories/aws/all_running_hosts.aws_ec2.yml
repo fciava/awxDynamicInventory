@@ -11,7 +11,7 @@ keyed_groups:
   prefix: Workload
 - key: tags["WorkloadType"]
   prefix: WorkloadType
-  parent_group: Workload_Talis_Amazing_Application
+  parent_group: tags["WorkloadType"]
 - key: tags["WorkloadSubset"]
   prefix: WorkloadSubset
 
