@@ -1,14 +1,11 @@
 plugin: aws_ec2
 # regions:
   # - eu-central-1
-filters:
-  tag:AWX: 'True'
+# filters:
+#   tag:AWX: 'True'
 strict_permissions: False
 hostnames:
-  # - '{{ tags["Name"] }}'
-  # - '{{ instance_id }}'
   - tag:Name
-  # - '{{ private-ip-address }}_{{ instance-id }}'
 keyed_groups:
 - key: tags["Workload"]
   prefix: Workload
@@ -22,5 +19,4 @@ keyed_groups:
 compose:
   ansible_host: private_ip_address
 use_extra_vars: yes
-# Can use IAM role in future to avoid IAM users and static passwords
 # iam_role_arn: arn:aws:iam::535393654389:role/awx-role
