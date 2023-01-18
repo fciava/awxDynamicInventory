@@ -19,4 +19,4 @@ keyed_groups:
 compose:
   ansible_host: private_ip_address
 use_extra_vars: yes
-# iam_role_arn: arn:aws:iam::535393654389:role/awx-role
+iam_role_arn: arn:aws:iam::557995593917:role/awx-role
